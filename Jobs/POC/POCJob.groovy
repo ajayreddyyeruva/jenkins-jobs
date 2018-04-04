@@ -32,6 +32,8 @@ envManage.each { config ->
     String githubBranch = apps.branch
     String baseFolderName = "/POC/${chefEnvironment}/Spring/"
     String deployJob = "${baseFolderName}/${springName}/${chefEnvironment}Deploy"
+    String qadeployJob = "/POC/qa/Spring//${springName}/qaDeploy"
+
 
     folder("/POC/${chefEnvironment}") {
       displayName(chefEnvironment)
@@ -107,7 +109,7 @@ envManage.each { config ->
       }
       if ("${chefEnvironment}" == "dev") {
         publishers {
-          downstream(deployJob, 'SUCCESS')
+          downstream(qadeployJob, 'SUCCESS')
         }
       }
     }
