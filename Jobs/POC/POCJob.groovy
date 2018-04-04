@@ -38,12 +38,12 @@ envManage.each { config ->
       description("Folder for ${chefEnvironment} env Spring app jobs")
     }
 
-    folder("/BackEnd/${chefEnvironment}/Spring") {
+    folder("/POC/${chefEnvironment}/Spring") {
       displayName('Spring')
       description("Folder for all Spring app jobs in ${chefEnvironment}")
     }
 
-    folder("/BackEnd/${chefEnvironment}/Spring/${springName}") {
+    folder("/POC/${chefEnvironment}/Spring/${springName}") {
       displayName(springName)
       description("Folder for all jobs related to ${springName} in ${chefEnvironment}")
     }
@@ -110,6 +110,6 @@ envManage.each { config ->
           downstream(deployJob, 'SUCCESS')
         }
       }
-    }  
+    }
   }
 }
